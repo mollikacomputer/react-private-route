@@ -1,6 +1,7 @@
-import React from 'react';
-import {getAuth, signInWithPopup} from "firebase/auth";
-const auth = getAuth(app);
+import React, { useState } from 'react';
+import { GoogleAuthProvider, signInWithPopup} from "firebase/auth";
+import { auth } from '../firebase.init';
+// const auth = getAuth(app);
 
 const Login = () => {
     const [user, setUser] = useState('');
