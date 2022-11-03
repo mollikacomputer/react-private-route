@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../Hooks/useFirebase";
 
 const Nav = () => {
-  const {user} = useFirebase();
+  const {user, handleSignOut} = useFirebase();
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -59,15 +59,21 @@ const Nav = () => {
             <Link to="updateservice">Update Service</Link>
           </li>
           <li>
+          <span> {user?.displayName}</span>
+          </li>
+          <li>
             {
-              user.uid ? 
-              <Link to="login">LogOut</Link>
+              user?.uid ? 
+              <Link to="login" onClick={handleSignOut} >Log Out</Link> 
               :
               <Link to="login">LogIn</Link>
             }
+           
           </li>
           <li>
             <Link to="register">Register</Link>
+          </li>
+          <li>
           </li>
         </ul>
       </div>
